@@ -9,7 +9,7 @@ group_rotation_frequency = 10
 [relaychain]
 # default_image = "{{ZOMBIENET_INTEGRATION_TEST_IMAGE}}"
 chain = "rococo-local"
-command = "./bin/polkadot"
+default_command = "./bin/polkadot"
 
   [[relaychain.nodes]]
   name = "alice"
