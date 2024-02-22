@@ -1,0 +1,35 @@
+[settings]
+timeout = 1000
+
+[relaychain.runtime_genesis_patch.configuration.config]
+max_validators_per_core = 1
+needed_approvals = 2
+group_rotation_frequency = 10
+
+[relaychain]
+# default_image = "{{ZOMBIENET_INTEGRATION_TEST_IMAGE}}"
+chain = "rococo-local"
+command = "./bin/polkadot"
+
+  [[relaychain.nodes]]
+  name = "alice"
+  args = [ "--alice", "-lruntime=debug,parachain=trace" ]
+
+  [[relaychain.nodes]]
+  name = "bob"
+  args = [ "--bob", "-lruntime=debug,parachain=trace" ]
+
+# [[parachains]]
+# id = 100
+# addToGenesis = false
+
+#   [[parachains.collators]]
+#   name = "collator01"
+#   image = "{{COL_IMAGE}}"
+#   command = "adder-collator"
+#   args = [ "-lruntime=debug,parachain=trace" ]
+
+[types.Header]
+number = "u64"
+parent_hash = "Hash"
+post_state = "Hash"
